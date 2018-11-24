@@ -2,7 +2,6 @@ package chapters.ch03
 
 import library.{List, Cons, Nil}
 
-
 object Ex_03_01 extends App {
   println("Ex_03_01")
   val x = List[Int](1, 2, 3, 4, 5) match {
