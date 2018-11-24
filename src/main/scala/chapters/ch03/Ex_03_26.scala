@@ -2,8 +2,8 @@ package chapters.ch03
 
 import library.{Tree, Leaf, Branch}
 
-object Ex3_26 extends App {
-  println("Ex3_26")
+object Ex_03_26 extends App {
+  println("Ex_03_26")
 
   def max(tree: Tree[Int]): Int = {
     def _max(t: Tree[Int], m: Int): Int = t match {
