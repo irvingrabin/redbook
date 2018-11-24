@@ -2,22 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43371265-1cd7-4c9c-ab7e-b1e0b27ab86e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/build.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_01.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_02.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_03.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_04.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_05.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_06.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_07.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_08.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_09.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_10.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_11.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_12.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/library/List.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_modules_scala_xml_2_12_1_0_6_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala_reflect_2_12_7_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalactic_scalactic_2_12_3_0_5_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_2_12_3_0_5_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch02/CommonDefs.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/scala/chapters/ch02/Chapter02Spec.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/redbook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/redbook.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/build.properties" beforeDir="false" afterPath="$PROJECT_DIR$/project/build.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_01.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_02.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_03.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_04.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_05.scala" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,76 +36,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/CommonDefs.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_02.scala">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/chapters/ch02/Chapter02Spec.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <folding>
+                <element signature="e#23#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.sbt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/build.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="21" />
+              <caret line="3" column="72" selection-start-line="1" selection-end-line="3" selection-end-column="72" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_28.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_29.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_01.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_03.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" lean-forward="true" selection-start-line="3" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_04.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_05.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_25.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/project/plugins.sbt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -149,12 +121,24 @@
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_28.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_27.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_01.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_02.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_26.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_01.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_03.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_04.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_05.scala" />
+        <option value="$PROJECT_DIR$/project/build.properties" />
+        <option value="$PROJECT_DIR$/build.sbt" />
+        <option value="$PROJECT_DIR$/project/plugins.sbt" />
+        <option value="$PROJECT_DIR$/src/test/scala/chapters/ch02/Ex_02_01Spec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_01.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_02.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex0202.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex0204.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex0203.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex0205.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/chapters/ch02/Ex0201Spec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/chapters/ch02/Ex0202Spec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/chapters/ch02/CommonDefs.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/chapters/ch02/Chapter02Spec.scala" />
       </list>
     </option>
   </component>
@@ -170,7 +154,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -187,7 +170,8 @@
             <path>
               <item name="redbook" type="b2602c69:ProjectViewProjectNode" />
               <item name="redbook" type="462c0819:PsiDirectoryNode" />
-              <item name="scratch" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="redbook" type="b2602c69:ProjectViewProjectNode" />
@@ -221,17 +205,58 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="chapters" type="462c0819:PsiDirectoryNode" />
+              <item name="ch02" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="redbook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="redbook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="library" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="redbook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="redbook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="redbook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="redbook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="redbook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="redbook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="chapters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="redbook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="redbook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="chapters" type="462c0819:PsiDirectoryNode" />
+              <item name="ch02" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543040055529" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543073836016" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -255,7 +280,7 @@
   </component>
   <component name="RunManager" selected="Application.Ex_02_05">
     <configuration name="Ex_02_01" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="chapters.ch02.Ex_02_01" />
+      <option name="MAIN_CLASS_NAME" value="chapters.ch02.Ex0201" />
       <module name="redbook" />
       <extension name="coverage">
         <pattern>
@@ -268,7 +293,7 @@
       </method>
     </configuration>
     <configuration name="Ex_02_02" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="chapters.ch02.Ex_02_02" />
+      <option name="MAIN_CLASS_NAME" value="chapters.ch02.Ex0202" />
       <module name="redbook" />
       <extension name="coverage">
         <pattern>
@@ -281,7 +306,7 @@
       </method>
     </configuration>
     <configuration name="Ex_02_03" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="chapters.ch02.Ex_02_03" />
+      <option name="MAIN_CLASS_NAME" value="chapters.ch02.Ex0203" />
       <module name="redbook" />
       <extension name="coverage">
         <pattern>
@@ -294,7 +319,7 @@
       </method>
     </configuration>
     <configuration name="Ex_02_04" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="chapters.ch02.Ex_02_04" />
+      <option name="MAIN_CLASS_NAME" value="chapters.ch02.Ex0204" />
       <module name="redbook" />
       <extension name="coverage">
         <pattern>
@@ -307,7 +332,7 @@
       </method>
     </configuration>
     <configuration name="Ex_02_05" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="chapters.ch02.Ex_02_05" />
+      <option name="MAIN_CLASS_NAME" value="chapters.ch02.Ex0205" />
       <module name="redbook" />
       <extension name="coverage">
         <pattern>
@@ -363,8 +388,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$/build.sbt" value="3446163317" />
-        <entry key="$PROJECT_DIR$/project/build.properties" value="2125951362" />
+        <entry key="$PROJECT_DIR$/build.sbt" value="3315871642" />
+        <entry key="$PROJECT_DIR$/project/build.properties" value="3536582532" />
+        <entry key="$PROJECT_DIR$/project/plugins.sbt" value="0" />
       </map>
     </option>
     <option name="projectSyncType">
@@ -390,15 +416,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="31" y="23" width="1379" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Learn" order="3" />
-      <window_info content_ui="combo" id="Project" order="4" visible="true" weight="0.25355273" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.26103216" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.44458598" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.44458598" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Build" order="3" weight="0.2700637" />
@@ -426,10 +453,10 @@
       <window_info id="Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Learn" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.25355273" />
+      <window_info content_ui="combo" id="Project" order="4" visible="true" weight="0.26103216" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.44458598" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.44458598" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Build" order="3" weight="0.2700637" />
@@ -437,7 +464,7 @@
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="5" weight="0.3299363" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3299363" />
-      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.33630574" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.33630574" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -456,15 +483,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/chapter03/ex3_02.scala" />
     <entry file="file://$PROJECT_DIR$/scratch/chapter03/ex3_03.scala" />
-    <entry file="file://$PROJECT_DIR$/project/build.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/scratch/chapter03/ex3_04.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_09.java" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_10.java" />
     <entry file="file://$PROJECT_DIR$/scratch/chapter03/ex3_05.scala" />
-    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_27.scala" />
-    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_26.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_02.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -486,9 +508,6 @@
           <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.sbt">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/scratch/chapter03/ex3_06.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_06.scala">
@@ -536,13 +555,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scratch/chapter03/ex3_14.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="43" lean-forward="true" selection-start-line="17" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/scratch/chapter03/ex3_14.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_04.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -557,13 +570,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/target/Ex_03_14.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/target/Ex_03_14.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/library/List.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -585,31 +592,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_1.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_2.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="31" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_1.scala" />
+    <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_2.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_14.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_25.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -627,6 +615,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_3.scala" />
+    <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_4.scala" />
+    <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_5.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_28.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -636,64 +627,104 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_29.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
+        <state relative-caret-position="615">
           <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_01.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_25.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="60">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_02.scala">
+    <entry file="file://$PROJECT_DIR$/project/build.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="21" />
+          <caret line="3" column="72" selection-start-line="1" selection-end-line="3" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_3.scala">
+    <entry file="file://$PROJECT_DIR$/project/plugins.sbt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="13" selection-end-column="3" />
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_03.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex0201.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="3" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex0202.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="3" selection-end-line="4" />
+          <caret line="4" selection-start-line="4" selection-end-line="14" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_4.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/chapters/ch02/Ex0201Spec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="e#23#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/chapters/ch02/Ex0202Spec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="23" selection-end-column="3" />
+          <folding>
+            <element signature="e#23#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex0203.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="10" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex0204.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="9" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex0205.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/chapters/ch02/Chapter02Spec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#23#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/CommonDefs.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_04.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_5.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch02/Ex_02_05.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -755,7 +786,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.398773" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
