@@ -5,6 +5,10 @@ sealed trait List[+A] {
     case Cons(x, xs: List[A]) => Cons(f(x), xs.map(f))
     case Nil         => Nil
   }
+  def tail: List[A] = this match {
+    case Cons(a, t) => t
+    case _          => Nil
+  }
   def print(tag: String): Unit = {
     Predef.print(s"    $tag:")
     this.map(x => Predef.print("  " + x))
@@ -23,11 +27,20 @@ sealed trait List[+A] {
     case Cons(x, xs) => Cons(x.asInstanceOf[A], xs.append(a))
     case Nil         => Cons(a, Nil)
   }
-
-}
+  def dropWhile(f: A => Boolean): List[A] = this match {
+    case l @ Cons(a, t) => if (f(a)) t.dropWhile(f) else l
+    case _ => Nil
+  }
+  def init: List[A] = {
+    def _init(hl: List[A], tl: List[A]): List[A] = tl match {
+      case Cons(tlh, tls @ Cons(_, _)) => _init(hl.append(tlh), tls)
+      case _                           => hl
+    }
+    _init(Nil, this)
+  }}
 
 final case object Nil extends List[Nothing]
-final case class Cons[+A](head: A, tail: List[A]) extends List[A]
+final case class Cons[+A](head: A, override val tail: List[A]) extends List[A]
 
 object List {
   def apply[A](as: A*): List[A] =
@@ -36,7 +49,6 @@ object List {
 
   def sum(as: List[Int]): Int = as.foldLeft(0)((x, y) => x + y)
   def product(as: List[Int]): Int = as.foldLeft(1)((x, y) => x * y)
-
 
   def product(doubles: List[Double]): Double = doubles match {
     case Cons(x, xs) => x * product(xs)
