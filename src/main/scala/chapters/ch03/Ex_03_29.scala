@@ -1,6 +1,6 @@
 package chapters.ch03
 
-import library.{Tree, Leaf, Branch}
+import lib.{Tree, Leaf, Branch}
 
 //  def max[B >: A](implicit num: Numeric[B]): Int = {
 //    println("GOT INTO max: num = " + num)

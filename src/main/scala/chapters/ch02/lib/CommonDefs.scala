@@ -1,4 +1,4 @@
-package chapters.ch02
+package chapters.ch02.lib
 
 object CommonDefs {
   def fib(n: Int): Int = {

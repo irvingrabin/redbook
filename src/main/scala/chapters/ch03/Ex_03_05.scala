@@ -1,6 +1,6 @@
 package chapters.ch03
 
-import library._
+import lib.{List, Cons, Nil}
 
 object Ex_03_05 extends App {
   println("Ex_03_05")

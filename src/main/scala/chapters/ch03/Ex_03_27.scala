@@ -1,6 +1,6 @@
 package chapters.ch03
 
-import library.{Tree, Branch, Leaf}
+import lib.{Tree, Branch, Leaf}
 
 object Ex_03_27 extends App {
   println("Ex_03_27")

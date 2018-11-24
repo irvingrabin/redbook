@@ -1,4 +1,4 @@
-package library
+package chapters.ch03.lib
 
 sealed trait List[+A] {
   def map[B](f: A => B): List[B] = this match {

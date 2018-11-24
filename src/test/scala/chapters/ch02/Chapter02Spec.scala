@@ -1,6 +1,6 @@
 package chapters.ch02
 
-import chapters.ch02.CommonDefs.{
+import chapters.ch02.lib.CommonDefs.{
   fib, ascInt, descInt, isSorted, curry, uncurry, compose}
 import org.scalatest.{FlatSpec, Matchers}
 
