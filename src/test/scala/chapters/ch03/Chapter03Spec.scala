@@ -1,6 +1,6 @@
 package chapters.ch03
 
-import chapters.ch03.lib.{List, Cons, Nil}
+import chapters.ch03.lib.{Branch, Cons, Leaf, List, Nil, Tree}
 import org.scalatest.{FlatSpec, Matchers}
 
 class Chapter03Spec extends FlatSpec with Matchers {
@@ -62,27 +62,52 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_07" in {
-    // TODO: needs to be done
+    List.sum(List(1, 2, 3, 4)) shouldBe 10
+    List.sum(List(1, 2)) shouldBe 3
+    List.sum(List()) shouldBe 0
+    List.sum2(List(1, 2, 3, 4)) shouldBe 10
+    List.sum2(List(1, 2)) shouldBe 3
+    List.sum2(List()) shouldBe 0
+
+    List.product(List(1.0, 2.0, 3.0, 4.0)) shouldBe 24.0
+    List.product(List(1.0, 2.0)) shouldBe 2.0
+    List.product(List(1.0, 2.0, 0.0, 5.0, 8.0, 11.0)) shouldBe 0.0
+    List.product(List[Int]()) shouldBe 1.0
+    List.product2(List(1.0, 2.0, 3.0, 4.0)) shouldBe 24.0
+    List.product2(List(1.0, 2.0)) shouldBe 2.0
+    List.product2(List(1.0, 2.0, 0.0, 5.0, 8.0, 11.0)) shouldBe 0.0
+    List.product2(List[Double]()) shouldBe 1.0
+    List.product3(List(1.0, 2.0, 3.0, 4.0)) shouldBe 24.0
+    List.product3(List(1.0, 2.0)) shouldBe 2.0
+    List.product3(List(1.0, 2.0, 0.0, 5.0, 8.0, 11.0)) shouldBe 0.0
+    List.product3(List[Double]()) shouldBe 1.0
   }
 
   it should "run test 03_08" in {
-    // TODO: needs to be done
+    List(1, 2, 3).foldRight(Nil:List[Int])(Cons(_, _)) shouldBe List(3, 2, 1)
   }
 
   it should "run test 03_09" in {
-    // TODO: needs to be done
+    List(1, 2, 3).length shouldBe 3
   }
 
   it should "run test 03_10" in {
-    // TODO: needs to be done
+    List().length shouldBe 0
   }
 
   it should "run test 03_11" in {
-    // TODO: needs to be done
-  }
+    val x1 = List(1, 2, 3, 4, 5, 6)
+    x1.print("Got list")
+    println(s" length of x1 is ${x1.length}")
+    println(s"    sum of x1 is ${List.sum(x1)}")
+    println(s"product of x1 is ${List.product(x1)}")  }
 
   it should "run test 03_12" in {
-    // TODO: needs to be done
+    val x1 = List(1, 2, 3, 4, 5, 6)
+    x1.print(
+      "  original x1 is")
+    List.reverse(x1).print(
+      "reverse of x1 is")
   }
 
   it should "run test 03_13" in {
@@ -90,7 +115,12 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_14" in {
-    // TODO: needs to be done
+    val x1 = List(1, 2, 3, 4, 5, 6)
+
+    x1.print(
+      "                x1 is")
+    x1.append(7).print(
+      "x1 with appended 7 is")
   }
 
   it should "run test 03_15" in {
@@ -134,22 +164,116 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_25" in {
-    // TODO: needs to be done
+    var t0 = Leaf(26)
+    var t1 = Leaf(66)
+    println(s"t0 has size ${t0.size}")
+    println(s"t1 has size ${t1.size}")
+    var t2 = Branch(t0, t1)
+    println(s"t2 has size ${t2.size}")
+    var t3 = Branch(t0, t2)
+    println(s"t3 has size ${t3.size}")
   }
 
   it should "run test 03_26" in {
-    // TODO: needs to be done
+    def max(tree: Tree[Int]): Int = {
+      def _max(t: Tree[Int], m: Int): Int = t match {
+        case Leaf(x) => if (x > m) x else m
+        case Branch(l, r) => {
+          val lmax = _max(l, m)
+          val rmax = _max(r, m)
+          if (lmax > rmax) lmax else rmax
+        }
+      }
+      _max(tree, Int.MinValue)
+    }
+    var t0 = Leaf(26)
+    var t1 = Leaf(66)
+    println(s"t0 has size ${t0.size}")
+    println(s"t1 has size ${t1.size}")
+    var t2 = Branch(t0, t1)
+    println(s"t2 has size ${t2.size}")
+    var t3 = Branch(t0, t2)
+    println(s"t3 has size ${t3.size}")
+    println(s"t3 has maximum ${max(t3)}")
+    var t4 = Leaf(71)
+    var t5 = Branch(t4, t3)
+    println(s"t5 has maximum ${max(t5)}")
   }
 
   it should "run test 03_27" in {
-    // TODO: needs to be done
+    def max(tree: Tree[Int]): Int = {
+      def _max(t: Tree[Int], m: Int): Int = t match {
+        case Leaf(x) => if (x > m) x else m
+        case Branch(l, r) => {
+          val lmax = _max(l, m)
+          val rmax = _max(r, m)
+          if (lmax > rmax) lmax else rmax
+        }
+      }
+      _max(tree, Int.MinValue)
+    }
+
+    def depth(tree: Tree[Int]): Int = {
+      def _depth(t: Tree[Int], m: Int): Int = t match {
+        case Leaf(x) => m + 1
+        case Branch(l, r) => {
+          val lmax = _depth(l, m + 1)
+          val rmax = _depth(r, m + 1)
+          if (lmax > rmax) lmax else rmax
+        }
+      }
+      _depth(tree, 0)
+    }
+
+    var t0 = Leaf(26)
+    println(s"t0 has depth ${depth(t0)}")
+    var t1 = Leaf(66)
+    println(s"t1 has depth ${depth(t1)}")
+    var t2 = Branch(t0, t1)
+    println(s"t2 has depth ${depth(t2)}")
+    var t3 = Branch(t0, t2)
+    println(s"t3 has depth ${depth(t3)}")
+    var t4 = Leaf(71)
+    println(s"t4 has depth ${depth(t4)}")
+    var t5 = Branch(t4, t3)
+    println(s"t5 has depth ${depth(t5)}")
+    var t6 = Branch(t4, t5)
+    println(s"t6 has depth ${depth(t6)}")
   }
 
   it should "run test 03_28" in {
-    // TODO: needs to be done
+
+    val t0 = Leaf(26)
+    val t1 = Leaf(66)
+    val t2 = Branch(t0, t1)
+    val t3 = Leaf(29)
+    val t4 = Leaf(71)
+    val t5 = Branch(t4, t3)
+    val t6 = Leaf(99)
+    val t7 = Branch(t6, t5)
+    val t8 = Branch(t2, t7)
+
+    t8.print
+    val t9 = t8.map(100 - _)
+    t9.print
+    val t10 = t9.map(x => x * x)
+    t10.print
   }
 
   it should "run test 03_29" in {
-    // TODO: needs to be done
+    val t0 = Leaf(26)
+    val t1 = Leaf(66)
+    val t2 = Branch(t0, t1)
+    val t3 = Leaf(29)
+    val t4 = Leaf(71)
+    val t5 = Branch(t4, t3)
+    val t6 = Leaf(99)
+    val t7 = Branch(t6, t5)
+    val t8 = Branch(t2, t7)
+
+    t8.print
+    println(s"Size of t8 is ${t8.size}")
+    //println(s"Maxi of t0 is ${t0.max}")
+    //println(s"Maxi of t8 is ${t8.max}")
   }
 }
