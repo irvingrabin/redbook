@@ -67,6 +67,7 @@ object List {
     case Cons(x, xs) => x * product(xs)
     case Nil         => 1.0
   }
+  def empty[A]: List[A] = Nil
 
   def foldRight[A, B](as: List[A], z: B)(f: (A, B) => B): B =
     as match {

@@ -16,7 +16,7 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_02" in {
-    List().tail shouldBe Nil
+    List.empty.tail shouldBe Nil
     List(1).tail shouldBe Nil
     List(1, 2, 3, 4, 5).tail shouldBe List(2, 3, 4, 5)
   }
@@ -26,7 +26,7 @@ class Chapter03Spec extends FlatSpec with Matchers {
       case Cons(a, t) => Cons(h, t)
       case _          => Cons(h, Nil)
     }
-    replaceHead(5, List()) shouldBe List(5)
+    replaceHead(5, List.empty) shouldBe List(5)
     replaceHead(5, List(1)) shouldBe List(5)
     replaceHead(5, List(1, 2, 3, 4, 5)) shouldBe List(5, 2, 3, 4, 5)
   }
@@ -39,7 +39,7 @@ class Chapter03Spec extends FlatSpec with Matchers {
         case _          => Nil
       }
 
-    dropHeads(5, List()) shouldBe Nil
+    dropHeads(5, List.empty) shouldBe Nil
     dropHeads(1, List(1)) shouldBe Nil
     dropHeads(3, List(1, 2, 3, 4, 5)) shouldBe List(4, 5)
   }
@@ -57,30 +57,30 @@ class Chapter03Spec extends FlatSpec with Matchers {
   it should "run test 03_06" in {
     List(1, 2, 3).init shouldBe List(1, 2)
     List(1, 2).init shouldBe List(1)
-    List(1).init shouldBe List()
-    List().init shouldBe List()
+    List(1).init shouldBe List.empty
+    List.empty.init shouldBe List.empty
   }
 
   it should "run test 03_07" in {
     List.sum(List(1, 2, 3, 4)) shouldBe 10
     List.sum(List(1, 2)) shouldBe 3
-    List.sum(List()) shouldBe 0
+    List.sum(List.empty) shouldBe 0
     List.sum2(List(1, 2, 3, 4)) shouldBe 10
     List.sum2(List(1, 2)) shouldBe 3
-    List.sum2(List()) shouldBe 0
+    List.sum2(List.empty) shouldBe 0
 
     List.product(List(1.0, 2.0, 3.0, 4.0)) shouldBe 24.0
     List.product(List(1.0, 2.0)) shouldBe 2.0
     List.product(List(1.0, 2.0, 0.0, 5.0, 8.0, 11.0)) shouldBe 0.0
-    List.product(List[Int]()) shouldBe 1.0
+    List.product(List.empty[Int]) shouldBe 1.0
     List.product2(List(1.0, 2.0, 3.0, 4.0)) shouldBe 24.0
     List.product2(List(1.0, 2.0)) shouldBe 2.0
     List.product2(List(1.0, 2.0, 0.0, 5.0, 8.0, 11.0)) shouldBe 0.0
-    List.product2(List[Double]()) shouldBe 1.0
+    List.product2(List.empty[Double]) shouldBe 1.0
     List.product3(List(1.0, 2.0, 3.0, 4.0)) shouldBe 24.0
     List.product3(List(1.0, 2.0)) shouldBe 2.0
     List.product3(List(1.0, 2.0, 0.0, 5.0, 8.0, 11.0)) shouldBe 0.0
-    List.product3(List[Double]()) shouldBe 1.0
+    List.product3(List.empty[Double]) shouldBe 1.0
   }
 
   it should "run test 03_08" in {
@@ -92,7 +92,7 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_10" in {
-    List().length shouldBe 0
+    List.empty.length shouldBe 0
   }
 
   it should "run test 03_11" in {
@@ -105,6 +105,7 @@ class Chapter03Spec extends FlatSpec with Matchers {
   it should "run test 03_12" in {
     // TODO: replace object methods with trait methods
     List.reverse(List(1, 2, 3, 4, 5, 6)) shouldBe List(6, 5, 4, 3, 2, 1)
+    List.reverse(List.empty) shouldBe List.empty
   }
 
   it should "run test 03_13" in {
@@ -112,28 +113,28 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_14" in {
-    List[Int]().append(5) shouldBe List(5)
+    List.empty.append(5) shouldBe List(5)
     List(1, 2, 3, 4, 5, 6).append(8) shouldBe List(1, 2, 3, 4, 5, 6, 8)
   }
 
   it should "run test 03_15" in {
     List(1, 2, 3).concatenate(List(5, 6, 7)) shouldBe List(1, 2, 3, 5, 6, 7)
-    List[Int]().concatenate(List[Int]()) shouldBe List[Int]()
-    List(5, 6, 7).concatenate(List[Int]()) shouldBe List(5, 6, 7)
-    List[Int]().concatenate(List(5, 6, 7)) shouldBe List(5, 6, 7)
+    List.empty.concatenate(List.empty) shouldBe List.empty
+    List(5, 6, 7).concatenate(List.empty) shouldBe List(5, 6, 7)
+    List.empty.concatenate(List(5, 6, 7)) shouldBe List(5, 6, 7)
   }
 
   it should "run test 03_16" in {
     def add1(list: List[Int]): List[Int] = list.map(_ + 1)
 
     add1(List(15, 40, 64)) shouldBe List(16, 41, 65)
-    add1(List[Int]()) shouldBe List[Int]()
+    add1(List.empty) shouldBe List.empty
   }
 
   it should "run test 03_17" in {
     def stringify(list: List[Double]): List[String] = list.map(_.toString)
 
-    stringify(List[Double]()) shouldBe List[Double]()
+    stringify(List.empty) shouldBe List.empty
     stringify(List(0.0, 15.5, 3.1415)) shouldBe List("0.0", "15.5", "3.1415")
   }
 
@@ -154,7 +155,7 @@ class Chapter03Spec extends FlatSpec with Matchers {
   it should "run test 03_21" in {
     class DoubleFilteredList[A](val s: List[A]) {
       def doubleFilter(f: A => Boolean): List[A] = s.flatMap(
-        x => if (f(x)) Cons(x, Nil) else List()
+        x => if (f(x)) Cons(x, Nil) else List.empty
       )
     }
     implicit def enhanceList[A](s: List[A]): DoubleFilteredList[A] = new DoubleFilteredList[A](s)
@@ -171,9 +172,9 @@ class Chapter03Spec extends FlatSpec with Matchers {
       case (Nil, Cons(bh, bt))          => Cons(bh, sumList(Nil, bt))
       case (Nil, Nil)                   => Nil
     }
-    sumList(List(), List()) shouldBe List()
-    sumList(List(1,2,3), List()) shouldBe List(1, 2, 3)
-    sumList(List(), List(5)) shouldBe List(5)
+    sumList(List.empty, List.empty) shouldBe List.empty
+    sumList(List(1,2,3), List.empty) shouldBe List(1, 2, 3)
+    sumList(List.empty, List(5)) shouldBe List(5)
     sumList(List(10, 20, 30, 40, 50), List(1, 2, 3, 4, 5, 6, 7)) shouldBe List(11, 22, 33, 44, 55, 6, 7)
   }
 
