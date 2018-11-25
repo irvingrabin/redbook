@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43371265-1cd7-4c9c-ab7e-b1e0b27ab86e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_07.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_08.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_09.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_10.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_11.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_12.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_14.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_25.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_26.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch03/lib/Tree.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/lib/Tree.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/scala/chapters/ch03/Chapter03Spec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/chapters/ch03/Chapter03Spec.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -40,29 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_28.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="21" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_29.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="28" selection-start-line="28" selection-end-line="41" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/chapters/ch03/Chapter03Spec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="240" column="41" selection-start-line="240" selection-start-column="41" selection-end-line="240" selection-end-column="41" />
+            <state relative-caret-position="291">
+              <caret line="178" column="22" selection-start-line="178" selection-start-column="22" selection-end-line="178" selection-end-column="22" />
               <folding>
                 <element signature="e#23#85#0" expanded="true" />
               </folding>
@@ -71,10 +44,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_27.scala">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/lib/Tree.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="44" selection-end-column="39" />
+            <state relative-caret-position="140">
+              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -141,6 +114,7 @@
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_05.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_06.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch03/lib/List.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/chapters/ch03/lib/Tree.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/chapters/ch03/Chapter03Spec.scala" />
       </list>
     </option>
@@ -277,7 +251,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543131458959" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543133019597" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -366,10 +340,10 @@
       <window_info id="Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Learn" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.26103216" />
+      <window_info content_ui="combo" id="Project" order="4" visible="true" weight="0.26103216" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.32356688" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.34522292" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Build" order="3" weight="0.2700637" />
@@ -405,13 +379,6 @@
     <entry file="file://$PROJECT_DIR$/scratch/chapter03/ex3_10.scala" />
     <entry file="file://$PROJECT_DIR$/scratch/chapter03/ex3_14.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/target/Ex_03_14.scala" />
-    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/lib/Tree.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_1.scala" />
     <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_2.scala" />
     <entry file="file://$PROJECT_DIR$/scratch/chapter02/ex2_3.scala" />
@@ -653,10 +620,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/lib/Tree.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/chapters/ch03/Chapter03Spec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="240" column="41" selection-start-line="240" selection-start-column="41" selection-end-line="240" selection-end-column="41" />
+        <state relative-caret-position="291">
+          <caret line="178" column="22" selection-start-line="178" selection-start-column="22" selection-end-line="178" selection-end-column="22" />
           <folding>
             <element signature="e#23#85#0" expanded="true" />
           </folding>

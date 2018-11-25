@@ -7,9 +7,9 @@ sealed trait Tree[+A] {
   }
   def print: Unit = {
     def _print(tree: Tree[A], level: Int): Unit = tree match {
-      case Leaf(x)             => println("src/main" * level + x.toString)
+      case Leaf(x)             => println("  " * level + x.toString)
       case Branch(left, right) => {
-        println("src/main" * level + "BRANCH")
+        println("  " * level + "BRANCH")
         _print(left, level + 1)
         _print(right, level + 1)
       }

@@ -172,6 +172,11 @@ class Chapter03Spec extends FlatSpec with Matchers {
     println(s"t2 has size ${t2.size}")
     var t3 = Branch(t0, t2)
     println(s"t3 has size ${t3.size}")
+
+    t0.size shouldBe 1
+    t1.size shouldBe 1
+    t2.size shouldBe 2
+    t3.size shouldBe 3
   }
 
   it should "run test 03_26" in {
@@ -201,6 +206,7 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_27" in {
+    // TODO: Move operations to Tree
     def max(tree: Tree[Int]): Int = {
       def _max(t: Tree[Int], m: Int): Int = t match {
         case Leaf(x) => if (x > m) x else m
@@ -226,38 +232,47 @@ class Chapter03Spec extends FlatSpec with Matchers {
     }
 
     var t0 = Leaf(26)
-    println(s"t0 has depth ${depth(t0)}")
     var t1 = Leaf(66)
-    println(s"t1 has depth ${depth(t1)}")
     var t2 = Branch(t0, t1)
-    println(s"t2 has depth ${depth(t2)}")
     var t3 = Branch(t0, t2)
-    println(s"t3 has depth ${depth(t3)}")
     var t4 = Leaf(71)
-    println(s"t4 has depth ${depth(t4)}")
     var t5 = Branch(t4, t3)
-    println(s"t5 has depth ${depth(t5)}")
     var t6 = Branch(t4, t5)
-    println(s"t6 has depth ${depth(t6)}")
+
+    depth(t0) shouldBe 1
+    depth(t1) shouldBe 1
+    depth(t2) shouldBe 2
+    depth(t3) shouldBe 3
+    depth(t4) shouldBe 1
+    depth(t5) shouldBe 4
+    depth(t6) shouldBe 5
   }
 
   it should "run test 03_28" in {
-
     val t0 = Leaf(26)
     val t1 = Leaf(66)
     val t2 = Branch(t0, t1)
-    val t3 = Leaf(29)
+    val t3 = Leaf(49)
     val t4 = Leaf(71)
     val t5 = Branch(t4, t3)
     val t6 = Leaf(99)
     val t7 = Branch(t6, t5)
     val t8 = Branch(t2, t7)
 
-    t8.print
     val t9 = t8.map(100 - _)
-    t9.print
-    val t10 = t9.map(x => x * x)
-    t10.print
+    t9 shouldBe Branch(
+      Branch(
+        Leaf(74),
+        Leaf(34)
+      ),
+      Branch(
+        Leaf(1),
+        Branch(
+          Leaf(29),
+          Leaf(51)
+        )
+      )
+    )
   }
 
   it should "run test 03_29" in {
