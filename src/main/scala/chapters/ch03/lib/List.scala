@@ -23,9 +23,17 @@ sealed trait List[+A] {
       case Nil         => z
     }
   def length = foldRight(0)((_, z) => z + 1)
-  def append[A](a: A): List[A] = this match {
+  def append[B>:A](a: B): List[B] = this match {
     case Cons(x, xs) => Cons(x.asInstanceOf[A], xs.append(a))
     case Nil         => Cons(a, Nil)
+  }
+  def concatenate[B>:A](as: List[B]): List[B] = as match {
+    case Cons(x, xs) => append(x).concatenate(xs)
+    case Nil         => this
+  }
+  def flatMap[B](f: A => List[B]): List[B] = this match {
+    case Cons(x, xs) => f(x).concatenate(xs.flatMap(f))
+    case Nil         => Nil
   }
   def dropWhile(f: A => Boolean): List[A] = this match {
     case l @ Cons(a, t) => if (f(a)) t.dropWhile(f) else l
@@ -37,7 +45,12 @@ sealed trait List[+A] {
       case _                           => hl
     }
     _init(Nil, this)
-  }}
+  }
+  def filter(f: A => Boolean): List[A] = this match {
+    case Cons(x, xs) => if (f(x)) Cons(x, xs.filter(f)) else xs.filter(f)
+    case Nil         => Nil
+  }
+}
 
 final case object Nil extends List[Nothing]
 final case class Cons[+A](head: A, override val tail: List[A]) extends List[A]

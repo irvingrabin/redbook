@@ -96,18 +96,15 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_11" in {
-    val x1 = List(1, 2, 3, 4, 5, 6)
-    x1.print("Got list")
-    println(s" length of x1 is ${x1.length}")
-    println(s"    sum of x1 is ${List.sum(x1)}")
-    println(s"product of x1 is ${List.product(x1)}")  }
+    // TODO: replace object methods with trait methods
+    List(1, 2, 3, 4, 5, 6).length shouldBe 6
+    List.sum(List(1, 2, 3, 4, 5, 6)) shouldBe 21
+    List.product(List(1, 2, 3, 4, 5, 6)) shouldBe 720
+  }
 
   it should "run test 03_12" in {
-    val x1 = List(1, 2, 3, 4, 5, 6)
-    x1.print(
-      "  original x1 is")
-    List.reverse(x1).print(
-      "reverse of x1 is")
+    // TODO: replace object methods with trait methods
+    List.reverse(List(1, 2, 3, 4, 5, 6)) shouldBe List(6, 5, 4, 3, 2, 1)
   }
 
   it should "run test 03_13" in {
@@ -115,63 +112,103 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_14" in {
-    val x1 = List(1, 2, 3, 4, 5, 6)
-
-    x1.print(
-      "                x1 is")
-    x1.append(7).print(
-      "x1 with appended 7 is")
+    List[Int]().append(5) shouldBe List(5)
+    List(1, 2, 3, 4, 5, 6).append(8) shouldBe List(1, 2, 3, 4, 5, 6, 8)
   }
 
   it should "run test 03_15" in {
-    // TODO: needs to be done
+    List(1, 2, 3).concatenate(List(5, 6, 7)) shouldBe List(1, 2, 3, 5, 6, 7)
+    List[Int]().concatenate(List[Int]()) shouldBe List[Int]()
+    List(5, 6, 7).concatenate(List[Int]()) shouldBe List(5, 6, 7)
+    List[Int]().concatenate(List(5, 6, 7)) shouldBe List(5, 6, 7)
   }
 
   it should "run test 03_16" in {
-    // TODO: needs to be done
+    def add1(list: List[Int]): List[Int] = list.map(_ + 1)
+
+    add1(List(15, 40, 64)) shouldBe List(16, 41, 65)
+    add1(List[Int]()) shouldBe List[Int]()
   }
 
   it should "run test 03_17" in {
-    // TODO: needs to be done
+    def stringify(list: List[Double]): List[String] = list.map(_.toString)
+
+    stringify(List[Double]()) shouldBe List[Double]()
+    stringify(List(0.0, 15.5, 3.1415)) shouldBe List("0.0", "15.5", "3.1415")
   }
 
   it should "run test 03_18" in {
-    // TODO: needs to be done
+    List(15.0, 12.5, 48.003).map(_.toInt) shouldBe List(15, 12, 48)
   }
 
   it should "run test 03_19" in {
-    // TODO: needs to be done
+    List(1, 2, 3, 4, 5, 6).filter(a => (a % 3 > 0)) shouldBe List(1, 2, 4, 5)
+    List(1, 2, 3, 4, 5, 6).filter(a => (a % 3 % 2 == 0)) shouldBe List(2, 3, 5, 6)
+    List(1, 2, 3, 4, 5, 6).filter(a => (a % 3 <= a % 2)) shouldBe List(1, 3, 6)
   }
 
   it should "run test 03_20" in {
-    // TODO: needs to be done
+    List(1, 2, 3, 4).flatMap(i => List(i + 2, i * i)) shouldBe List(3,1,4,4,5,9, 6, 16)
   }
 
   it should "run test 03_21" in {
-    // TODO: needs to be done
+    class DoubleFilteredList[A](val s: List[A]) {
+      def doubleFilter(f: A => Boolean): List[A] = s.flatMap(
+        x => if (f(x)) Cons(x, Nil) else List()
+      )
+    }
+    implicit def enhanceList[A](s: List[A]): DoubleFilteredList[A] = new DoubleFilteredList[A](s)
+
+    List(1, 2, 3, 4, 5, 6).doubleFilter(a => (a % 3 > 0)) shouldBe List(1, 2, 4, 5)
+    List(1, 2, 3, 4, 5, 6).doubleFilter(a => (a % 3 % 2 == 0)) shouldBe List(2, 3, 5, 6)
+    List(1, 2, 3, 4, 5, 6).doubleFilter(a => (a % 3 <= a % 2)) shouldBe List(1, 3, 6)
   }
 
   it should "run test 03_22" in {
-    // TODO: needs to be done
+    def sumList(a: List[Int], b: List[Int]): List[Int] = (a, b) match {
+      case (Cons(ah, at), Cons(bh, bt)) => Cons(ah + bh, sumList(at, bt))
+      case (Cons(ah, at), Nil)          => Cons(ah, sumList(at, Nil))
+      case (Nil, Cons(bh, bt))          => Cons(bh, sumList(Nil, bt))
+      case (Nil, Nil)                   => Nil
+    }
+    sumList(List(), List()) shouldBe List()
+    sumList(List(1,2,3), List()) shouldBe List(1, 2, 3)
+    sumList(List(), List(5)) shouldBe List(5)
+    sumList(List(10, 20, 30, 40, 50), List(1, 2, 3, 4, 5, 6, 7)) shouldBe List(11, 22, 33, 44, 55, 6, 7)
   }
 
   it should "run test 03_23" in {
-    // TODO: needs to be done
+    def zipWith[A](f: (A, A) => A)(a: List[A], b: List[A]): List[A] = (a, b) match {
+      case (Cons(ah, at), Cons(bh, bt)) => Cons(f(ah, bh), zipWith(f)(at, bt))
+      case (Cons(ah, at), Nil)          => Cons(ah, zipWith(f)(at, Nil))
+      case (Nil, Cons(bh, bt))          => Cons(bh, zipWith(f)(Nil, bt))
+      case (Nil, Nil)                   => Nil
+    }
+    def concat(s: String, t: String): String = s + t
+    zipWith(concat)(List("Good", "Bad", "Ugly"), List("Boy", "Girl", "Duckling", "WTF")) shouldBe List(
+      "GoodBoy", "BadGirl", "UglyDuckling", "WTF"
+    )
   }
 
   it should "run test 03_24" in {
-    // TODO: needs to be done
+    def startsWith[A](a: List[A], b: List[A]): Boolean = (a, b) match {
+      case (Cons(ah, at), Cons(bh, bt)) => if (ah == bh) startsWith(at, bt) else false
+      case (_, Nil)                     => true
+      case (Nil, Cons(_,_))             => false
+    }
+    def subSequence[A](a: List[A], b: List[A]): Boolean = a match {
+        case Cons(_, at) => startsWith(a, b) || subSequence(at, b)
+        case Nil         => false
+    }
+    subSequence(List(1, 3, 5, 7), List(3, 5)) shouldBe true
+    subSequence(List(1, 3, 5, 7), List(3, 7)) shouldBe false
   }
 
   it should "run test 03_25" in {
     var t0 = Leaf(26)
     var t1 = Leaf(66)
-    println(s"t0 has size ${t0.size}")
-    println(s"t1 has size ${t1.size}")
     var t2 = Branch(t0, t1)
-    println(s"t2 has size ${t2.size}")
     var t3 = Branch(t0, t2)
-    println(s"t3 has size ${t3.size}")
 
     t0.size shouldBe 1
     t1.size shouldBe 1
@@ -180,6 +217,7 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_26" in {
+    // TODO: move max to Tree
     def max(tree: Tree[Int]): Int = {
       def _max(t: Tree[Int], m: Int): Int = t match {
         case Leaf(x) => if (x > m) x else m
@@ -193,16 +231,17 @@ class Chapter03Spec extends FlatSpec with Matchers {
     }
     var t0 = Leaf(26)
     var t1 = Leaf(66)
-    println(s"t0 has size ${t0.size}")
-    println(s"t1 has size ${t1.size}")
     var t2 = Branch(t0, t1)
-    println(s"t2 has size ${t2.size}")
     var t3 = Branch(t0, t2)
-    println(s"t3 has size ${t3.size}")
-    println(s"t3 has maximum ${max(t3)}")
     var t4 = Leaf(71)
     var t5 = Branch(t4, t3)
-    println(s"t5 has maximum ${max(t5)}")
+
+    t0.size shouldBe 1
+    t1.size shouldBe 1
+    t2.size shouldBe 2
+    t3.size shouldBe 3
+    max(t3) shouldBe 66
+    max(t5) shouldBe 71
   }
 
   it should "run test 03_27" in {
@@ -276,6 +315,7 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_29" in {
+    // TODO: Implement Max
     val t0 = Leaf(26)
     val t1 = Leaf(66)
     val t2 = Branch(t0, t1)
