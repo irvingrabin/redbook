@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43371265-1cd7-4c9c-ab7e-b1e0b27ab86e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch10/lib/Monoid.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/scala/chapters/ch10/Chapter10Spec.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/chapters/ch03/lib/List.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/chapters/ch03/lib/List.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/scala/chapters/ch03/Chapter03Spec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/chapters/ch03/Chapter03Spec.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,13 +33,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/chapters/ch03/Chapter03Spec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="184" column="34" lean-forward="true" selection-start-line="184" selection-start-column="34" selection-end-line="184" selection-end-column="34" />
+            <state relative-caret-position="345">
+              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
               <folding>
                 <element signature="e#23#85#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch10/lib/Monoid.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/chapters/ch10/Chapter10Spec.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+              <folding>
+                <element signature="e#23#64#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,6 +139,8 @@
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch03/lib/Tree.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/chapters/ch03/lib/List.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/chapters/ch03/Chapter03Spec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/chapters/ch10/lib/Monoid.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/chapters/ch10/Chapter10Spec.scala" />
       </list>
     </option>
   </component>
@@ -202,7 +226,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="chapters" type="462c0819:PsiDirectoryNode" />
-              <item name="ch03" type="462c0819:PsiDirectoryNode" />
+              <item name="ch10" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="redbook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="redbook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="chapters" type="462c0819:PsiDirectoryNode" />
+              <item name="ch10" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -233,7 +266,7 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="chapters" type="462c0819:PsiDirectoryNode" />
-              <item name="ch02" type="462c0819:PsiDirectoryNode" />
+              <item name="ch03" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="redbook" type="b2602c69:ProjectViewProjectNode" />
@@ -242,7 +275,7 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="chapters" type="462c0819:PsiDirectoryNode" />
-              <item name="ch03" type="462c0819:PsiDirectoryNode" />
+              <item name="ch10" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -252,7 +285,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543161732115" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543245516942" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -369,8 +402,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scratch/chapter03/ex3_04.scala" />
-    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_09.java" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch03/Ex_03_10.java" />
     <entry file="file://$PROJECT_DIR$/scratch/chapter03/ex3_05.scala" />
     <entry file="file://$PROJECT_DIR$/scratch/chapter03/ex3_07.scala" />
@@ -630,10 +661,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/chapters/ch03/Chapter03Spec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="184" column="34" lean-forward="true" selection-start-line="184" selection-start-column="34" selection-end-line="184" selection-end-column="34" />
+        <state relative-caret-position="345">
+          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
           <folding>
             <element signature="e#23#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/chapters/ch10/lib/Monoid.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/chapters/ch10/Chapter10Spec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+          <folding>
+            <element signature="e#23#64#0" expanded="true" />
           </folding>
         </state>
       </provider>

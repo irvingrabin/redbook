@@ -4,7 +4,7 @@ import chapters.ch03.lib.{Branch, Cons, Leaf, List, Nil, Tree}
 import org.scalatest.{FlatSpec, Matchers}
 
 class Chapter03Spec extends FlatSpec with Matchers {
-  it should "run test 03_01" in {
+  it should "03_01 figure out result" in {
     val x = List[Int](1, 2, 3, 4, 5) match {
       case Cons(x, Cons(2, Cons(4, _))) => x
       case Nil => 42
@@ -15,13 +15,13 @@ class Chapter03Spec extends FlatSpec with Matchers {
     x shouldBe 3
   }
 
-  it should "run test 03_02" in {
+  it should "03_02 implement tail" in {
     List.empty.tail shouldBe Nil
     List(1).tail shouldBe Nil
     List(1, 2, 3, 4, 5).tail shouldBe List(2, 3, 4, 5)
   }
 
-  it should "run test 03_03" in {
+  it should "03_03 implement replaseHead" in {
     def replaceHead[A] = (h: A, l: List[A]) => l match {
       case Cons(a, t) => Cons(h, t)
       case _          => Cons(h, Nil)
