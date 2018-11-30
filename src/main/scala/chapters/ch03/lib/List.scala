@@ -31,6 +31,10 @@ sealed trait List[+A] {
     case Cons(x, xs) => append(x).concatenate(xs)
     case Nil         => this
   }
+  def reverse: List[A] = this match {
+    case Cons(x, xs) => xs.reverse append x
+    case Nil         => Nil
+  }
   def flatMap[B](f: A => List[B]): List[B] = this match {
     case Cons(x, xs) => f(x).concatenate(xs.flatMap(f))
     case Nil         => Nil
@@ -50,6 +54,9 @@ sealed trait List[+A] {
     case Cons(x, xs) => if (f(x)) Cons(x, xs.filter(f)) else xs.filter(f)
     case Nil         => Nil
   }
+
+  def sum[B >: A](implicit num: Numeric[B]): B = foldLeft(num.zero)(num.plus)
+  def product[B >: A](implicit num: Numeric[B]): B = foldLeft(num.one)(num.times)
 }
 
 final case object Nil extends List[Nothing]
@@ -60,44 +67,5 @@ object List {
     if (as.isEmpty) Nil
     else Cons(as.head, apply(as.tail: _*))
 
-  def sum(as: List[Int]): Int = as.foldLeft(0)((x, y) => x + y)
-  def product(as: List[Int]): Int = as.foldLeft(1)((x, y) => x * y)
-
-  def product(doubles: List[Double]): Double = doubles match {
-    case Cons(x, xs) => x * product(xs)
-    case Nil         => 1.0
-  }
   def empty[A]: List[A] = Nil
-
-  def foldRight[A, B](as: List[A], z: B)(f: (A, B) => B): B =
-    as match {
-      case Cons(x, xs) => foldRight(xs, f(x, z))(f)
-      case Nil         => z
-    }
-
-  def foldRightMult(as: List[Double], z: Double, b: Double): Double =
-    as match {
-      case Cons(x, _) if x == b => b
-      case Cons(x, xs)          => foldRightMult(xs, x * z, b)
-      case Nil                  => z
-    }
-
-  def append[A](as: List[A], a: A):List[A] = as match {
-    case Cons(x, xs) => Cons(x, append(xs, a))
-    case Nil         => List(a)
-  }
-
-  def concatenate[A](asl: List[A], asr: List[A]): List[A] = asr match {
-    case Cons(x, xs) => concatenate(append(asl, x), xs)
-    case _           => asl
-  }
-
-  def reverse(as: List[Int]): List[Int] = as match {
-    case Cons(x, xs) => append(reverse(xs), x)
-    case Nil         => Nil
-  }
-
-  def sum2(ns: List[Int]) = foldRight(ns, 0)(_ + _)
-  def product2(ns: List[Double]) = foldRight(ns, 1.0)(_ * _)
-  def product3(ns: List[Double]) = foldRightMult(ns, 1.0, 0.0)
 }

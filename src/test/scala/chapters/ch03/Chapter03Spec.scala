@@ -62,25 +62,14 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_07" in {
-    List.sum(List(1, 2, 3, 4)) shouldBe 10
-    List.sum(List(1, 2)) shouldBe 3
-    List.sum(List.empty) shouldBe 0
-    List.sum2(List(1, 2, 3, 4)) shouldBe 10
-    List.sum2(List(1, 2)) shouldBe 3
-    List.sum2(List.empty) shouldBe 0
+    List(1.0, 2.0, 3.0, 4.0).sum shouldBe 10.0
+    List(1.0, 2.0).sum shouldBe 3.0
+    List.empty[Double].sum shouldBe 0.0
 
-    List.product(List(1.0, 2.0, 3.0, 4.0)) shouldBe 24.0
-    List.product(List(1.0, 2.0)) shouldBe 2.0
-    List.product(List(1.0, 2.0, 0.0, 5.0, 8.0, 11.0)) shouldBe 0.0
-    List.product(List.empty[Int]) shouldBe 1.0
-    List.product2(List(1.0, 2.0, 3.0, 4.0)) shouldBe 24.0
-    List.product2(List(1.0, 2.0)) shouldBe 2.0
-    List.product2(List(1.0, 2.0, 0.0, 5.0, 8.0, 11.0)) shouldBe 0.0
-    List.product2(List.empty[Double]) shouldBe 1.0
-    List.product3(List(1.0, 2.0, 3.0, 4.0)) shouldBe 24.0
-    List.product3(List(1.0, 2.0)) shouldBe 2.0
-    List.product3(List(1.0, 2.0, 0.0, 5.0, 8.0, 11.0)) shouldBe 0.0
-    List.product3(List.empty[Double]) shouldBe 1.0
+    List(1.0, 2.0, 3.0, 4.0).product shouldBe 24.0
+    List(1.0, 2.0).product shouldBe 2.0
+    List(1.0, 2.0, 0.0, 5.0, 8.0, 11.0).product shouldBe 0.0
+    List.empty[Double].product shouldBe 1.0
   }
 
   it should "run test 03_08" in {
@@ -96,16 +85,14 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_11" in {
-    // TODO: replace object methods with trait methods
     List(1, 2, 3, 4, 5, 6).length shouldBe 6
-    List.sum(List(1, 2, 3, 4, 5, 6)) shouldBe 21
-    List.product(List(1, 2, 3, 4, 5, 6)) shouldBe 720
+    List(1, 2, 3, 4, 5, 6).sum shouldBe 21
+    List(1, 2, 3, 4, 5, 6).product shouldBe 720
   }
 
   it should "run test 03_12" in {
-    // TODO: replace object methods with trait methods
-    List.reverse(List(1, 2, 3, 4, 5, 6)) shouldBe List(6, 5, 4, 3, 2, 1)
-    List.reverse(List.empty) shouldBe List.empty
+    List(1, 2, 3, 4, 5, 6).reverse shouldBe List(6, 5, 4, 3, 2, 1)
+    List.empty.reverse shouldBe List.empty
   }
 
   it should "run test 03_13" in {
@@ -230,12 +217,12 @@ class Chapter03Spec extends FlatSpec with Matchers {
       }
       _max(tree, Int.MinValue)
     }
-    var t0 = Leaf(26)
-    var t1 = Leaf(66)
-    var t2 = Branch(t0, t1)
-    var t3 = Branch(t0, t2)
-    var t4 = Leaf(71)
-    var t5 = Branch(t4, t3)
+    val t0 = Leaf(26)
+    val t1 = Leaf(66)
+    val t2 = Branch(t0, t1)
+    val t3 = Branch(t0, t2)
+    val t4 = Leaf(71)
+    val t5 = Branch(t4, t3)
 
     t0.size shouldBe 1
     t1.size shouldBe 1
@@ -316,7 +303,6 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_29" in {
-    // TODO: Implement Max
     val t0 = Leaf(26)
     val t1 = Leaf(66)
     val t2 = Branch(t0, t1)
@@ -327,9 +313,14 @@ class Chapter03Spec extends FlatSpec with Matchers {
     val t7 = Branch(t6, t5)
     val t8 = Branch(t2, t7)
 
-    t8.print
-    println(s"Size of t8 is ${t8.size}")
-    //println(s"Maxi of t0 is ${t0.max}")
-    //println(s"Maxi of t8 is ${t8.max}")
+    t0.max shouldBe 26
+    t1.max shouldBe 66
+    t2.max shouldBe 66
+    t3.max shouldBe 29
+    t4.max shouldBe 71
+    t5.max shouldBe 71
+    t6.max shouldBe 99
+    t7.max shouldBe 99
+    t8.max shouldBe 99
   }
 }

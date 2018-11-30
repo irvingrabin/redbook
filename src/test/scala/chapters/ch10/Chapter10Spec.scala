@@ -49,6 +49,36 @@ class Chapter10Spec extends FlatSpec with Matchers {
     booleanOr(false, booleanOr.zero) shouldBe false
     booleanOr(booleanOr.zero, false) shouldBe false
     booleanOr(false, false, false) shouldBe false
+  }
+
+  it should "10_02 define an option Monoid" in {
+    def optionMonoidFirst[A]: Monoid[Option[A]] = new Monoid[Option[A]] {
+      override def op(a1: Option[A], a2: Option[A]): Option[A] = a1 match {
+        case (Some(a1v)) => a1
+        case _           => a2
+      }
+      val zero: Option[A] = None
+    }
+    optionMonoidFirst(Some(5), Some(6)) shouldBe Some(6)
+  }
+
+  it should "10_03 define an endofunction Monoid" in {
+
+  }
+
+  it should "10_04 property test on Monoids" in {
+
+  }
+
+  it should "10_05 implement foldMap" in {
+
+  }
+
+  it should "10_06 implement foldLeft and foldRight using FoldMap" in {
+
+  }
+
+  it should "10_07 implement foldMap for IndexedSeq" in {
 
   }
 }

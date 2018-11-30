@@ -4,7 +4,7 @@ import chapters.ch02.lib.CommonDefs.{
   fib, ascInt, descInt, isSorted, curry, uncurry, compose}
 import org.scalatest.{FlatSpec, Matchers}
 
-class Chapter02Spec extends FlatSpec with Matchers {
+class Chapter_02_Spec extends FlatSpec with Matchers {
 
   it should "run test 02_01" in {
     fib(0) shouldBe 1

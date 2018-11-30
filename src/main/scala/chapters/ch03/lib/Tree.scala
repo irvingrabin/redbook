@@ -24,6 +24,7 @@ sealed trait Tree[+A] {
     }
   }
   def size: Int = fold(this, 0)((_, s) => s + 1)
+  def max(implicit ev: A <:< Int): Int = fold(this, Int.MinValue)((t, s) => if (t > s) t else s)
 }
 final case class Leaf[A](value: A) extends Tree[A]
 final case class Branch[A](left: Tree[A], right: Tree[A]) extends Tree[A]
