@@ -54,7 +54,6 @@ sealed trait List[+A] {
     case Cons(x, xs) => if (f(x)) Cons(x, xs.filter(f)) else xs.filter(f)
     case Nil         => Nil
   }
-
   def sum[B >: A](implicit num: Numeric[B]): B = foldLeft(num.zero)(num.plus)
   def product[B >: A](implicit num: Numeric[B]): B = foldLeft(num.one)(num.times)
 }

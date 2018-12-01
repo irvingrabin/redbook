@@ -3,7 +3,7 @@ package chapters.ch03
 import chapters.ch03.lib.{Branch, Cons, Leaf, List, Nil, Tree}
 import org.scalatest.{FlatSpec, Matchers}
 
-class Chapter03Spec extends FlatSpec with Matchers {
+class Chapter_03_Spec extends FlatSpec with Matchers {
   it should "03_01 figure out result" in {
     val x = List[Int](1, 2, 3, 4, 5) match {
       case Cons(x, Cons(2, Cons(4, _))) => x
@@ -96,7 +96,15 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_13" in {
-    // TODO: needs to be done
+    // TODO: to understand what it means
+    def foldRightViaFoldLeft_1[A,B](l: List[A], z: B)(f: (A,B) => B): B =
+      l.foldLeft((b:B) => b)((g,a) => b => g(f(a,b)))(z)
+    foldRightViaFoldLeft_1(List(1,2,3,4,5), 0)(
+      (x, y) => {
+        //println(s"Got x=$x, y=$y, returning ${x + y}")
+        x + y
+      }
+    ) shouldBe 15
   }
 
   it should "run test 03_14" in {
@@ -136,20 +144,20 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_20" in {
-    List(1, 2, 3, 4).flatMap(i => List(i + 2, i * i)) shouldBe List(3,1,4,4,5,9, 6, 16)
+    List(1, 2, 3, 4).flatMap(i => List(i + 2, i * i)) shouldBe List(3, 1 ,4 ,4, 5, 9, 6, 16)
   }
 
   it should "run test 03_21" in {
-    class DoubleFilteredList[A](val s: List[A]) {
-      def doubleFilter(f: A => Boolean): List[A] = s.flatMap(
+    class FlatFilteredList[A](val s: List[A]) {
+      def flatFilter(f: A => Boolean): List[A] = s.flatMap(
         x => if (f(x)) Cons(x, Nil) else List.empty
       )
     }
-    implicit def enhanceList[A](s: List[A]): DoubleFilteredList[A] = new DoubleFilteredList[A](s)
+    implicit def enhanceList[A](s: List[A]): FlatFilteredList[A] = new FlatFilteredList[A](s)
 
-    List(1, 2, 3, 4, 5, 6).doubleFilter(a => (a % 3 > 0)) shouldBe List(1, 2, 4, 5)
-    List(1, 2, 3, 4, 5, 6).doubleFilter(a => (a % 3 % 2 == 0)) shouldBe List(2, 3, 5, 6)
-    List(1, 2, 3, 4, 5, 6).doubleFilter(a => (a % 3 <= a % 2)) shouldBe List(1, 3, 6)
+    List(1, 2, 3, 4, 5, 6).flatFilter(a => (a % 3 > 0)) shouldBe List(1, 2, 4, 5)
+    List(1, 2, 3, 4, 5, 6).flatFilter(a => (a % 3 % 2 == 0)) shouldBe List(2, 3, 5, 6)
+    List(1, 2, 3, 4, 5, 6).flatFilter(a => (a % 3 <= a % 2)) shouldBe List(1, 3, 6)
   }
 
   it should "run test 03_22" in {
@@ -205,18 +213,6 @@ class Chapter03Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_26" in {
-    // TODO: move max to Tree
-    def max(tree: Tree[Int]): Int = {
-      def _max(t: Tree[Int], m: Int): Int = t match {
-        case Leaf(x) => if (x > m) x else m
-        case Branch(l, r) => {
-          val lmax = _max(l, m)
-          val rmax = _max(r, m)
-          if (lmax > rmax) lmax else rmax
-        }
-      }
-      _max(tree, Int.MinValue)
-    }
     val t0 = Leaf(26)
     val t1 = Leaf(66)
     val t2 = Branch(t0, t1)
@@ -228,24 +224,11 @@ class Chapter03Spec extends FlatSpec with Matchers {
     t1.size shouldBe 1
     t2.size shouldBe 2
     t3.size shouldBe 3
-    max(t3) shouldBe 66
-    max(t5) shouldBe 71
+    t3.max shouldBe 66
+    t5.max shouldBe 71
   }
 
   it should "run test 03_27" in {
-    // TODO: Move operations to Tree
-    def max(tree: Tree[Int]): Int = {
-      def _max(t: Tree[Int], m: Int): Int = t match {
-        case Leaf(x) => if (x > m) x else m
-        case Branch(l, r) => {
-          val lmax = _max(l, m)
-          val rmax = _max(r, m)
-          if (lmax > rmax) lmax else rmax
-        }
-      }
-      _max(tree, Int.MinValue)
-    }
-
     def depth(tree: Tree[Int]): Int = {
       def _depth(t: Tree[Int], m: Int): Int = t match {
         case Leaf(x) => m + 1
@@ -258,13 +241,13 @@ class Chapter03Spec extends FlatSpec with Matchers {
       _depth(tree, 0)
     }
 
-    var t0 = Leaf(26)
-    var t1 = Leaf(66)
-    var t2 = Branch(t0, t1)
-    var t3 = Branch(t0, t2)
-    var t4 = Leaf(71)
-    var t5 = Branch(t4, t3)
-    var t6 = Branch(t4, t5)
+    val t0 = Leaf(26)
+    val t1 = Leaf(66)
+    val t2 = Branch(t0, t1)
+    val t3 = Branch(t0, t2)
+    val t4 = Leaf(71)
+    val t5 = Branch(t4, t3)
+    val t6 = Branch(t4, t5)
 
     depth(t0) shouldBe 1
     depth(t1) shouldBe 1

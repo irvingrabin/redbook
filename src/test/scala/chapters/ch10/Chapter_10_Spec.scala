@@ -3,7 +3,7 @@ package chapters.ch10
 import org.scalatest.{FlatSpec, Matchers}
 import chapters.ch10.lib.Monoid
 
-class Chapter10Spec extends FlatSpec with Matchers {
+class Chapter_10_Spec extends FlatSpec with Matchers {
   it should "10-01 implement monoids" in {
     val intAddition = new Monoid[Int] {
       val zero: Int = 0
@@ -59,7 +59,7 @@ class Chapter10Spec extends FlatSpec with Matchers {
       }
       val zero: Option[A] = None
     }
-    optionMonoidFirst(Some(5), Some(6)) shouldBe Some(6)
+    optionMonoidFirst(Some(5), Some(6)) shouldBe Some(5)
   }
 
   it should "10_03 define an endofunction Monoid" in {
