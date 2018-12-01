@@ -24,4 +24,21 @@ class Chapter_04_Spec  extends FlatSpec with Matchers {
     Some(5).filter(_ % 2 == 0) shouldBe None
     (None: Option[Int]).filter(_ => true) shouldBe None
   }
+
+  it should "04_02 define and test variance" in {
+    // TODO: implement with flatMap
+    def variance(xs: Seq[Double]): Option[Double] = {
+      if (xs.size == 0) None
+      else {
+        val mean: Double = xs.sum / xs.size
+        val variance = xs.foldLeft(0.0)((s, v) => s + (v - mean)*(v - mean)) / xs.size
+        Some(variance)
+      }
+    }
+    variance(Seq()) shouldBe None
+    variance(Seq(1.0)) shouldBe Some(0.0)
+    variance(Seq(1.0, 1.0)) shouldBe Some(0.0)
+    variance(Seq(1.0, 3.0)) shouldBe Some(1.0)
+    variance(Seq(3.0, 6.0, 9.0)) shouldBe Some(6.0)
+  }
 }
