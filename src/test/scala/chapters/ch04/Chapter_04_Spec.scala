@@ -1,6 +1,7 @@
 package chapters.ch04
 
 import org.scalatest.{FlatSpec, Matchers}
+import chapters.ch03.lib.List
 import chapters.ch04.lib.{Option, Some, None}
 
 class Chapter_04_Spec  extends FlatSpec with Matchers {
@@ -26,19 +27,49 @@ class Chapter_04_Spec  extends FlatSpec with Matchers {
   }
 
   it should "04_02 define and test variance" in {
-    // TODO: implement with flatMap
-    def variance(xs: Seq[Double]): Option[Double] = {
-      if (xs.size == 0) None
-      else {
-        val mean: Double = xs.sum / xs.size
-        val variance = xs.foldLeft(0.0)((s, v) => s + (v - mean)*(v - mean)) / xs.size
-        Some(variance)
-      }
-    }
+    def mean(xs: Seq[Double]): Option[Double] =
+      if (xs.isEmpty) None
+      else Some(xs.sum / xs.length)
+
+    def variance(xs: Seq[Double]): Option[Double] =
+      mean(xs) flatMap (m => mean(xs.map(x => math.pow(x - m, 2))))
+
     variance(Seq()) shouldBe None
     variance(Seq(1.0)) shouldBe Some(0.0)
     variance(Seq(1.0, 1.0)) shouldBe Some(0.0)
     variance(Seq(1.0, 3.0)) shouldBe Some(1.0)
     variance(Seq(3.0, 6.0, 9.0)) shouldBe Some(6.0)
+  }
+
+  it should "04_03 Implement map2 for options" in {
+    def map2[A,B,C](a: Option[A], b: Option[B])(f: (A, B) => C): Option[C] =
+      for { av <- a; bv <- b } yield f(av, bv)
+
+    map2(Some(5), Some(7))(_ + _) shouldBe Some(12)
+    map2[Int, Int, Int](None, Some(7))(_ + _) shouldBe None
+    map2(Some(5), None)(_ + _) shouldBe None
+    map2[Int, Int, Int](None, None)(_ + _) shouldBe None
+  }
+
+  it should "04_04 implement sequence" in {
+    def sequence[A](a: List[Option[A]]): Option[List[A]] = {
+      val a1 = a.filter(_.exists).map(_.get)
+      if (a1.length > 0) Some(a1) else None
+    }
+
+    sequence(List()) shouldBe None
+    sequence(List(None, None, None, None)) shouldBe None
+    sequence(List(Some(1), None, Some(2), Some(3), None, None, Some(4), None)) shouldBe Some(List(1, 2, 3, 4))
+  }
+
+  it should "04_05 implement traverse" in {
+    def traverse[A, B](a: List[A])(f: A => Option[B]): Option[List[B]] = {
+      val a1 = a.map(f).filter(_.exists).map(_.get)
+      if (a1.length > 0) Some(a1) else None
+    }
+
+    traverse(List[Int]())(x => Some(x + 2)) shouldBe None
+    traverse(List(1,2,3,4,5,6,7,8))(x => if (x % 3 == 0) None else Some(x)) shouldBe Some(List(1, 2, 4, 5, 7, 8))
+    traverse(List(1,2,3,4,5,6,7,8))(x => if (x < 10) None else Some(x)) shouldBe None
   }
 }
