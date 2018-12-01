@@ -2,7 +2,7 @@ package chapters.ch04
 
 import org.scalatest.{FlatSpec, Matchers}
 import chapters.ch03.lib.List
-import chapters.ch04.lib.{Option, Some, None}
+import chapters.ch04.lib.{Option, Some, None, Either, Right, Left}
 
 class Chapter_04_Spec  extends FlatSpec with Matchers {
   it should "04_01 implement basic Options" in {
@@ -71,5 +71,26 @@ class Chapter_04_Spec  extends FlatSpec with Matchers {
     traverse(List[Int]())(x => Some(x + 2)) shouldBe None
     traverse(List(1,2,3,4,5,6,7,8))(x => if (x % 3 == 0) None else Some(x)) shouldBe Some(List(1, 2, 4, 5, 7, 8))
     traverse(List(1,2,3,4,5,6,7,8))(x => if (x < 10) None else Some(x)) shouldBe None
+  }
+
+  it should "04_06 implement Either correctly" in {
+    val e1: Seq[Either[String, Int]] = Seq(
+      Left("hello"),
+      Left("goodbye"),
+      Right(25),
+      Right(44),
+      Left("what"),
+      Right(56)
+    )
+    e1.map(x => x.map(_.toDouble)) shouldBe Seq(
+      Left("hello"),
+      Left("goodbye"),
+      Right(25.0),
+      Right(44.0),
+      Left("what"),
+      Right(56.0)
+    )
+
+
   }
 }
