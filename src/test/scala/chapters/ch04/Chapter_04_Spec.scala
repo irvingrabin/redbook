@@ -74,23 +74,20 @@ class Chapter_04_Spec  extends FlatSpec with Matchers {
   }
 
   it should "04_06 implement Either correctly" in {
-    val e1: Seq[Either[String, Int]] = Seq(
-      Left("hello"),
-      Left("goodbye"),
-      Right(25),
-      Right(44),
-      Left("what"),
-      Right(56)
-    )
-    e1.map(x => x.map(_.toDouble)) shouldBe Seq(
-      Left("hello"),
-      Left("goodbye"),
-      Right(25.0),
-      Right(44.0),
-      Left("what"),
-      Right(56.0)
-    )
+    val e1: Seq[Either[String, Int]] = Seq(Left("hello"), Right(25), Right(44), Left("what"), Right(56))
 
+    e1.map(x => x.map(100.0 - _.toDouble)) shouldBe Seq(Left("hello"), Right(75.0), Right(56.0), Left("what"), Right(44.0))
 
+    e1.map(
+      x => x.flatMap(x => if (x % 2 == 0) Right(99 - x) else Left(s"$x is an odd number"))
+    ) shouldBe Seq(Left("hello"), Left("25 is an odd number"), Right(55), Left("what"), Right(43))
+
+    Right(43).orElse(Right("xyz")) shouldBe Right(43)
+    Left(43).orElse(Right("xyz")) shouldBe Right("xyz")
+
+    Right(43).map2(Right(7.34))(_.toDouble + _) shouldBe Right(50.34)
+    Right(45).map2(Left(3.62))(_.toDouble + _) shouldBe Left(3.62)
+    (Left(45): Either[Int, Double]).map2(Right(3.62): Either[Double, Double])(_ + _) shouldBe Left(45)
+    (Left(45): Either[Int, Double]).map2(Left(3.62): Either[Double, Double])(_ + _) shouldBe Left(45)
   }
 }
