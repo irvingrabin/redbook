@@ -1,7 +1,7 @@
 package chapters.ch04
 
 import org.scalatest.{FlatSpec, Matchers}
-import chapters.ch03.lib.List
+import chapters.ch03.lib.{List, Cons, Nil}
 import chapters.ch04.lib.{Option, Some, None, Either, Right, Left}
 
 class Chapter_04_Spec  extends FlatSpec with Matchers {
@@ -89,5 +89,37 @@ class Chapter_04_Spec  extends FlatSpec with Matchers {
     Right(45).map2(Left(3.62))(_.toDouble + _) shouldBe Left(3.62)
     (Left(45): Either[Int, Double]).map2(Right(3.62): Either[Double, Double])(_ + _) shouldBe Left(45)
     (Left(45): Either[Int, Double]).map2(Left(3.62): Either[Double, Double])(_ + _) shouldBe Left(45)
+  }
+
+  it should "04_07 implement sequence and traverse for Either" in {
+    def traverse[E, A, B](as: List[A])(f: A => Either[E, B]): Either[E, List[B]] = {
+      val rights = as.map(f).flatMap(_ match {
+        case Right(b) => List(b)
+        case Left(_)  => List.empty
+      })
+      if (rights.length > 0) Right(rights)
+      else {
+        val lefts = as.map(f).flatMap(_ match {
+          case Right(_) => List.empty
+          case Left(l)  => List(l)
+        })
+        if (lefts.length > 0) Left(lefts(0).get)
+        else Right(List.empty)
+      }
+    }
+
+    traverse(List(1, 2, 3, 4, 5))((x: Int) => {
+      if (x % 2 == 1) Left(s"$x is an odd number")
+      else Right(x/2)
+    }) shouldBe Right(List(1, 2))
+    traverse(List(1, 2, 3, 4, 5))((x: Int) => {
+      if (x < 10) Left(s"$x is smaller than 10")
+      else Right(x)
+    }) shouldBe Left("1 is smaller than 10")
+
+  }
+
+  it should "04_08 have map2 return both all errors" in {
+    // TODO: eventually fill up
   }
 }

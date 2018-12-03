@@ -18,30 +18,39 @@ sealed trait List[+A] {
     case Cons(x, xs) => xs.foldRight(f(x, z))(f)
     case Nil         => z
   }
-  def foldLeft[B](z: B)(f: (B, A) => B): B = this match {
+  def foldLeft[B](z: B)(f: (B, A) => B): B = {
+    this match {
       case Cons(x, xs) => xs.foldLeft(f(z, x))(f)
       case Nil         => z
     }
+  }
   def length = foldRight(0)((_, z) => z + 1)
   def append[B>:A](a: B): List[B] = this match {
     case Cons(x, xs) => Cons(x.asInstanceOf[A], xs.append(a))
     case Nil         => Cons(a, Nil)
   }
-  def concatenate[B>:A](as: List[B]): List[B] = as match {
-    case Cons(x, xs) => append(x).concatenate(xs)
-    case Nil         => this
+  def ++[B>:A](as: List[B]): List[B] = {
+    as match {
+      case Cons(x, xs) => append(x).++(xs)
+      case Nil         => this
+    }
   }
   def reverse: List[A] = this match {
     case Cons(x, xs) => xs.reverse append x
     case Nil         => Nil
   }
   def flatMap[B](f: A => List[B]): List[B] = this match {
-    case Cons(x, xs) => f(x).concatenate(xs.flatMap(f))
+    case Cons(x, xs) => f(x).++(xs.flatMap(f))
     case Nil         => Nil
   }
   def dropWhile(f: A => Boolean): List[A] = this match {
     case l @ Cons(a, t) => if (f(a)) t.dropWhile(f) else l
     case _ => Nil
+  }
+  def getFirst[AA >: A](f: A => Boolean): Option[A] = this match {
+    case Cons(x, xs) if f(x) => Some(x)
+    case Cons(x, xs)         => xs.getFirst(f)
+    case Nil                 => None
   }
   def init: List[A] = {
     def _init(hl: List[A], tl: List[A]): List[A] = tl match {
@@ -56,6 +65,11 @@ sealed trait List[+A] {
   }
   def sum[B >: A](implicit num: Numeric[B]): B = foldLeft(num.zero)(num.plus)
   def product[B >: A](implicit num: Numeric[B]): B = foldLeft(num.one)(num.times)
+  def apply(i: Int): Option[A] = this match {
+    case _ if i < 0   => None
+    case Nil if i > 0 => None
+    case Cons(x, xs)  => if (i == 0) Some(x) else xs.apply(i - 1)
+  }
 }
 
 final case object Nil extends List[Nothing]

@@ -21,7 +21,7 @@ class Chapter_03_Spec extends FlatSpec with Matchers {
     List(1, 2, 3, 4, 5).tail shouldBe List(2, 3, 4, 5)
   }
 
-  it should "03_03 implement replaseHead" in {
+  it should "03_03 implement replaceHead" in {
     def replaceHead[A] = (h: A, l: List[A]) => l match {
       case Cons(a, t) => Cons(h, t)
       case _          => Cons(h, Nil)
@@ -31,7 +31,7 @@ class Chapter_03_Spec extends FlatSpec with Matchers {
     replaceHead(5, List(1, 2, 3, 4, 5)) shouldBe List(5, 2, 3, 4, 5)
   }
 
-  it should "run test 03_04" in {
+  it should "03_04 implement dropHeads" in {
     def dropHeads[A](n: Int, l: List[A]): List[A] =
       if (n <= 0) l
       else l match {
@@ -44,7 +44,7 @@ class Chapter_03_Spec extends FlatSpec with Matchers {
     dropHeads(3, List(1, 2, 3, 4, 5)) shouldBe List(4, 5)
   }
 
-  it should "run test 03_05" in {
+  it should "03_05 implement dropWhile" in {
     val isEven = (n: Int) => (n % 2 == 0)
     val isTreven = (n: Int) => (n % 3 == 0)
 
@@ -54,14 +54,14 @@ class Chapter_03_Spec extends FlatSpec with Matchers {
     List(3, 9, 3, 24, 45).dropWhile(isTreven) shouldBe Nil
   }
 
-  it should "run test 03_06" in {
+  it should "03_06 implement init" in {
     List(1, 2, 3).init shouldBe List(1, 2)
     List(1, 2).init shouldBe List(1)
     List(1).init shouldBe List.empty
     List.empty.init shouldBe List.empty
   }
 
-  it should "run test 03_07" in {
+  it should "03_07 implement sum" in {
     List(1.0, 2.0, 3.0, 4.0).sum shouldBe 10.0
     List(1.0, 2.0).sum shouldBe 3.0
     List.empty[Double].sum shouldBe 0.0
@@ -72,8 +72,9 @@ class Chapter_03_Spec extends FlatSpec with Matchers {
     List.empty[Double].product shouldBe 1.0
   }
 
-  it should "run test 03_08" in {
-    List(1, 2, 3).foldRight(Nil:List[Int])(Cons(_, _)) shouldBe List(3, 2, 1)
+  it should "03_08 test foldRight and foldLeft on list" in {
+    List(1, 2, 3).foldLeft(Nil:List[Int])((x, y) => Cons(y, x)) shouldBe List(3, 2, 1)
+    List(5, 6, 7).foldRight(Nil:List[Int])(Cons(_, _)) shouldBe List(7, 6, 5)
   }
 
   it should "run test 03_09" in {
@@ -96,15 +97,11 @@ class Chapter_03_Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_13" in {
-    // TODO: to understand what it means
-    def foldRightViaFoldLeft_1[A,B](l: List[A], z: B)(f: (A,B) => B): B =
+    def foldRightViaFoldLeft[A,B](l: List[A], z: B)(f: (A,B) => B): B = {
       l.foldLeft((b:B) => b)((g,a) => b => g(f(a,b)))(z)
-    foldRightViaFoldLeft_1(List(1,2,3,4,5), 0)(
-      (x, y) => {
-        //println(s"Got x=$x, y=$y, returning ${x + y}")
-        x + y
-      }
-    ) shouldBe 15
+    }
+
+    foldRightViaFoldLeft(List(1,2,3,4,5), 0)((x, y) => x + y) shouldBe 15
   }
 
   it should "run test 03_14" in {
@@ -113,10 +110,10 @@ class Chapter_03_Spec extends FlatSpec with Matchers {
   }
 
   it should "run test 03_15" in {
-    List(1, 2, 3).concatenate(List(5, 6, 7)) shouldBe List(1, 2, 3, 5, 6, 7)
-    List.empty.concatenate(List.empty) shouldBe List.empty
-    List(5, 6, 7).concatenate(List.empty) shouldBe List(5, 6, 7)
-    List.empty.concatenate(List(5, 6, 7)) shouldBe List(5, 6, 7)
+    List(1, 2, 3) ++ List(5, 6, 7) shouldBe List(1, 2, 3, 5, 6, 7)
+    List.empty ++ List.empty shouldBe List.empty
+    List(5, 6, 7) ++ List.empty shouldBe List(5, 6, 7)
+    List.empty ++ List(5, 6, 7) shouldBe List(5, 6, 7)
   }
 
   it should "run test 03_16" in {
