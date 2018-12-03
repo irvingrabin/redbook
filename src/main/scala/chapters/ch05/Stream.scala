@@ -11,6 +11,15 @@ sealed trait Stream[+A] {
     case Empty => Nil
     case Cons(h, t) => ListCons(h(), t().toList)
   }
+  override def toString: String = toList.toString
+  def take(n: Int): Seq[A] = this match {
+    case Cons(h, t) if n > 0 => h() +: t().take(n - 1)
+    case _                   => Seq.empty
+  }
+  def drop(n: Int): Stream[A] = this match {
+    case Cons(h, t) if n > 0 => t().drop(n - 1)
+    case _                   => this
+  }
 }
 case object Empty extends Stream[Nothing]
 case class Cons[+A](h: () => A, t: () => Stream[A]) extends Stream[A]

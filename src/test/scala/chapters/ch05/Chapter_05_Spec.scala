@@ -8,24 +8,28 @@ class Chapter_05_Spec  extends FlatSpec with Matchers {
     Stream(1, 2, 3, 4, 5).toList shouldBe List(1, 2, 3, 4, 5)
   }
 
-  it should "05_02 define and test variance" in {
+  it should "05_02 implement take(n) and drop(n)" in {
+    val s1 = Stream(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    s1.take(5) shouldEqual Seq(1, 2, 3, 4, 5)
+    s1.drop(5) shouldBe a [Stream[_]]
+    s1.drop(5).toList shouldEqual List(6, 7, 8, 9)
   }
 
-  it should "05_03 Implement map2 for options" in {
+  it should "05_03 " in {
   }
 
-  it should "05_04 implement sequence" in {
+  it should "05_04 " in {
   }
 
-  it should "05_05 implement traverse" in {
+  it should "05_05 " in {
   }
 
-  it should "05_06 implement Either correctly" in {
+  it should "05_06 " in {
   }
 
-  it should "05_07 implement sequence and traverse for Either" in {
+  it should "05_07 " in {
   }
 
-  it should "05_08 have map2 return both all errors" in {
+  it should "05_08 " in {
   }
 }

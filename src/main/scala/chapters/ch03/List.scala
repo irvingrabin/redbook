@@ -24,6 +24,8 @@ sealed trait List[+A] {
       case Nil         => z
     }
   }
+  override def toString: String = "(" + foldLeft("")(_.toString + " " + _.toString) + " )"
+
   def length = foldRight(0)((_, z) => z + 1)
   def append[B>:A](a: B): List[B] = this match {
     case Cons(x, xs) => Cons(x.asInstanceOf[A], xs.append(a))
