@@ -1,8 +1,7 @@
 package chapters.ch04
 
 import org.scalatest.{FlatSpec, Matchers}
-import chapters.ch03.lib.{List, Cons, Nil}
-import chapters.ch04.lib.{Option, Some, None, Either, Right, Left}
+import chapters.ch03.{List}
 
 class Chapter_04_Spec  extends FlatSpec with Matchers {
   it should "04_01 implement basic Options" in {

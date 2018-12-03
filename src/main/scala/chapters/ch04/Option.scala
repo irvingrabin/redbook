@@ -1,4 +1,4 @@
-package chapters.ch04.lib
+package chapters.ch04
 
 sealed trait Option[+A] {
   def map[B](f: A => B): Option[B] = this match {

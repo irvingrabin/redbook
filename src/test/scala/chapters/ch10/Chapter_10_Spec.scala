@@ -1,7 +1,6 @@
 package chapters.ch10
 
 import org.scalatest.{FlatSpec, Matchers}
-import chapters.ch10.lib.Monoid
 
 class Chapter_10_Spec extends FlatSpec with Matchers {
   it should "10-01 implement monoids" in {

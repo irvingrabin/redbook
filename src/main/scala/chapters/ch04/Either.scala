@@ -1,4 +1,4 @@
-package chapters.ch04.lib
+package chapters.ch04
 
 sealed trait Either[+E, +A] {
   def map[B](f: A => B): Either[E, B] = this match {

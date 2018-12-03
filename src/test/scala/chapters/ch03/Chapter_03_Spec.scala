@@ -1,6 +1,5 @@
 package chapters.ch03
 
-import chapters.ch03.lib.{Branch, Cons, Leaf, List, Nil, Tree}
 import org.scalatest.{FlatSpec, Matchers}
 
 class Chapter_03_Spec extends FlatSpec with Matchers {

@@ -1,4 +1,4 @@
-package chapters.ch10.lib
+package chapters.ch10
 
 trait Monoid[A] {
   def op(a1: A, a2: A): A
